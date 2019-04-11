@@ -42,3 +42,22 @@ function products($category, $connect){
 
     return $products;
 }
+/* ===общая сумма в корзине=== */
+function total_sum($session, $connect) {
+    $total_sum = 0;
+
+    $str_goods = implode(',',array_keys($session));
+
+    $query = "SELECT goods_id, name, price FROM goods  
+                 WHERE goods_id IN ($str_goods)";
+    
+    $res = mysqli_query($connect, $query) or die(mysqli_error($connect));
+
+    while($row = mysqli_fetch_assoc($res)) {
+        $_SESSION['cart'][$row['goods_id']]['name'] = $row['name'];
+        $_SESSION['cart'][$row['goods_id']]['price'] = $row['price'];
+        $total_sum += $_SESSION['cart'][$row['goods_id']]['qty'] * $row['price'];
+    }
+
+    return $total_sum;
+}

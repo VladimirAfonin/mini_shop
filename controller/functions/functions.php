@@ -8,4 +8,21 @@ function print_arr($arr){
     print_r($arr);
     echo "</pre>";
 }
-/* ===Распечатка массива=== */
+
+/* ===добавление в корзину=== */
+function addtocart($goods_id){
+    if(isset($_SESSION['cart'][$goods_id])) {
+        $_SESSION['cart'][$goods_id]['qty'] += 1;
+        return $_SESSION['cart'];
+    } else {
+        $_SESSION['cart'][$goods_id]['qty'] = 1;
+        return $_SESSION['cart'];
+    }
+}
+
+/* === redirect === */
+function redirect(){
+    $redirect = ($_SERVER['HTTP_REFERER']) ?: PATH;
+    header("Location: " . $redirect);
+    exit();
+}

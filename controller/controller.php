@@ -19,10 +19,26 @@ $view = empty($_GET['view']) ? 'hits' : $_GET['view'];
 switch($view){
     case('cat'):
         // товары категории
-        $category = abs((int)$_GET['category']);
+        $category = ((int)$_GET['category']);
         $products = products($category, $connect); // получаем массив из модели
         break;
 
+    case('addtocart'):
+        // добавление в корзину
+        $goods_id = (int)$_GET['goods_id'];
+        addtocart($goods_id);
+
+        $_SESSION['total_sum'] = total_sum($_SESSION['cart'], $connect);
+        $_SESSION['total_qty'] = 0;
+        foreach($_SESSION['cart'] as $key => $value) {
+            if(isset($value['price'])) {
+                $_SESSION['total_qty'] += $value['qty'];
+            } else {
+                unset($_SESSION['cart'][$key]);
+            }
+        }
+        redirect();
+        break;
 
 }
 
