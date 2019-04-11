@@ -53,6 +53,10 @@ switch($view){
             }
             redirect();
         }
+        if(isset($_GET['delete_all'])) {
+            unset($_SESSION['cart'], $_SESSION['total_sum'], $_SESSION['total_qty']);
+            redirect();
+        }
 
         break;
 

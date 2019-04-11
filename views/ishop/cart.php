@@ -18,14 +18,17 @@
 		</td>
 		<td class="z_kol"><input id="<?= $key ?>" class="kolvo" type="text" value="<?=$item['qty']?>" name="" /></td>
 		<td class="z_price"><?=$item['price']?></td>
-		<td class="z_del"><a href="?view=cart&delete=<?=$key?>"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
+		<td class="z_del"><a class="confirm" href="?view=cart&delete=<?=$key?>"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
 	  </tr>
 <?php endforeach; ?>
 	  <tr>
 		<td class="z_bot">&nbsp;&nbsp;&nbsp;&nbsp;Итого:</td>
 		<td class="z_bot" colspan="3" align="right"><?=$_SESSION['total_qty']?> шт &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?=$_SESSION['total_sum']?> руб.</td>
 	  </tr>
-	  
+	  <tr>
+          <td class="z_bot">&nbsp;&nbsp;&nbsp;&nbsp;Очистить корзину:</td>
+          <td class="z_bot" colspan="3" align="right"><a class="confirm" href="?view=cart&delete_all=1"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
+      </tr>
 	</table>
 	
 	<div class="sposob-dostavki">

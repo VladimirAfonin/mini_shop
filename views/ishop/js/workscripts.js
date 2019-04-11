@@ -46,4 +46,13 @@ $(document).ready(function(){
 		});
 	});
 
+	$('.confirm').click(function(){
+		var result = confirm('Вы уверены?');
+		if(result) {
+			return true;
+		} else {
+			return false;
+		}
+	});
+
 });
