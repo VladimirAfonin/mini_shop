@@ -18,7 +18,7 @@
 		</td>
 		<td class="z_kol"><input id="<?= $key ?>" class="kolvo" type="text" value="<?=$item['qty']?>" name="" /></td>
 		<td class="z_price"><?=$item['price']?></td>
-		<td class="z_del"><a href="#"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
+		<td class="z_del"><a href="?view=cart&delete=<?=$key?>"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
 	  </tr>
 <?php endforeach; ?>
 	  <tr>

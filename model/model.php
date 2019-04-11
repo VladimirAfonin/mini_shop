@@ -46,7 +46,7 @@ function products($category, $connect){
 function total_sum($session, $connect) {
     $total_sum = 0;
 
-    $str_goods = implode(',',array_keys($session));
+    $str_goods = implode(',', array_keys($session));
 
     $query = "SELECT goods_id, name, price, img FROM goods  
                  WHERE goods_id IN ($str_goods)";
@@ -61,4 +61,15 @@ function total_sum($session, $connect) {
     }
 
     return $total_sum;
+}
+
+/* ===удаление из корзины === */
+function delete_from_cart($goods_id){
+    if($_SESSION['cart']) {
+        if(array_key_exists($goods_id, $_SESSION['cart'])) {
+            $_SESSION['total_qty'] -= $_SESSION['cart'][$goods_id]['qty'];
+            $_SESSION['total_sum'] -= $_SESSION['cart'][$goods_id]['price'];
+            unset($_SESSION['cart'][$goods_id]);
+        }
+    }
 }

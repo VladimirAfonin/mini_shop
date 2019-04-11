@@ -46,6 +46,14 @@ switch($view){
             $_SESSION['total_sum'] = total_sum($_SESSION['cart'], $connect);
             redirect();
         }
+        if(isset($_GET['delete'])) {
+            $goods_id = (int)$_GET['delete'];
+            if($goods_id) {
+                delete_from_cart($goods_id);
+            }
+            redirect();
+        }
+
         break;
 
 }
