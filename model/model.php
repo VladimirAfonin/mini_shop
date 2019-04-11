@@ -48,7 +48,7 @@ function total_sum($session, $connect) {
 
     $str_goods = implode(',',array_keys($session));
 
-    $query = "SELECT goods_id, name, price FROM goods  
+    $query = "SELECT goods_id, name, price, img FROM goods  
                  WHERE goods_id IN ($str_goods)";
     
     $res = mysqli_query($connect, $query) or die(mysqli_error($connect));
@@ -56,6 +56,7 @@ function total_sum($session, $connect) {
     while($row = mysqli_fetch_assoc($res)) {
         $_SESSION['cart'][$row['goods_id']]['name'] = $row['name'];
         $_SESSION['cart'][$row['goods_id']]['price'] = $row['price'];
+        $_SESSION['cart'][$row['goods_id']]['img'] = $row['img'];
         $total_sum += $_SESSION['cart'][$row['goods_id']]['qty'] * $row['price'];
     }
 

@@ -40,6 +40,9 @@ switch($view){
         redirect();
         break;
 
+    case('cart'):
+        // корзина
+
 }
 
 // подключени вида

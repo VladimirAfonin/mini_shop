@@ -17,6 +17,9 @@ define('VIEW', 'views/');
 // активный шаблон
 define('TEMPLATE', VIEW . 'ishop/');
 
+// папка с картинками контента
+define('PRODUCTIMG', PATH . 'userfiles/');
+
 // сервер БД
 define('HOST', 'localhost');
 
