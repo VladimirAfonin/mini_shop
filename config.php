@@ -15,7 +15,7 @@ define('CONTROLLER', 'controller/controller.php');
 define('VIEW', 'views/');
 
 // активный шаблон
-define('TEMPLATE', 'ishop/');
+define('TEMPLATE', VIEW . 'ishop/');
 
 // сервер БД
 define('HOST', 'localhost');
