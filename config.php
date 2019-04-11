@@ -34,4 +34,4 @@ define('TITLE', 'Интернет магазин телефонов');
 
 $connect = mysqli_connect(HOST, USER, PASS) or die('No connect to Server');
 mysqli_select_db($connect, DB) or die('No connect to DB');
-//mysqli_query("SET NAMES 'UTF8'") or die('Cant set charset');
+mysqli_query($connect, "SET NAMES 'UTF8'") or die('Cant set charset');

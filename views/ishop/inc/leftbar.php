@@ -5,6 +5,7 @@
 				<h3 class="nav-new"><a href="?view=new">Новинки</a></h3>
 				<h3 class="nav-lider"><a href="?view=hits">Лидеры продаж</a></h3>
 				<h3 class="nav-sale"><a href="?view=sale">Распродажа</a></h3>
+                <!-- Меню категорий -->
 				<h4>- Мобильные телефоны</h4>
 				<ul class="nav-catalog" id="accordion">
                     <?php foreach($cat as $key => $item): ?>
@@ -21,6 +22,7 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
 				</ul>
+                <!-- Меню категорий -->
 				<div class="bar-contact">
 					<h3>Контакты:</h3>
 					<p><strong>Телефон:</strong><br />
@@ -45,26 +47,15 @@
 					</p>
 					<a href="#" class="news-arh">Архив новостей</a>
 				</div>
-				<div class="info">
-					<h3>Способы оплаты:</h3>
-					<p>- <a href="#">Наличный расчёт</a></p>
-					<p>- <a href="#">Пластиковой картой</a></p>
-					<p>- <a href="#">Кредит</a></p>
-					<p>- <a href="#">Рассчитать кредит</a></p>
-					<p>- <a href="#">Безналичный расчёт</a></p>
-				</div>
-				<div class="info">
-					<h3>Доставка:</h3>
-					<p>- <a href="#">Почта России</a></p>
-					<p>- <a href="#">Курьерская служба</a></p>
-				</div>
-				<div class="info">
-					<h3>Информация для вас:</h3>
-					<p>- <a href="#">Гарантия</a></p>
-					<p>- <a href="#">Как выбрать телефон</a></p>
-					<p>- <a href="#">Ремонт и обслуживание</a></p>
-					<p>- <a href="#">Акции и новинки</a></p>
-					<p>- <a href="#">Условия доставки</a></p>
-				</div>
+                <!-- Информеры -->
+                <?php foreach($informers as $informer): ?>
+                <div class="info">
+                    <h3><?=$informer[0]?></h3>
+                    <?php foreach($informer['sub'] as $key => $sub): ?>
+                    <p>- <a href="?view=informer&id=<?=$key?>"><?=$sub?></a></p>
+                    <?php endforeach; ?>
+                </div> <!-- .info -->
+                <?php endforeach; ?>
+                <!-- Информеры -->
 			</div>		
 		</div>
