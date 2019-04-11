@@ -2,9 +2,7 @@
 <div id="left-bar">
 			<div class="left-bar-cont">
 				<h2>Каталог</h2>
-				<h3 class="nav-new"><a href="?view=new">Новинки</a></h3>
-				<h3 class="nav-lider"><a href="?view=hits">Лидеры продаж</a></h3>
-				<h3 class="nav-sale"><a href="?view=sale">Распродажа</a></h3>
+                <br>
                 <!-- Меню категорий -->
 				<h4>- Мобильные телефоны</h4>
 				<ul class="nav-catalog" id="accordion">
@@ -23,30 +21,7 @@
                     <?php endforeach; ?>
 				</ul>
                 <!-- Меню категорий -->
-				<div class="bar-contact">
-					<h3>Контакты:</h3>
-					<p><strong>Телефон:</strong><br />
-					<span>8 (800) 700-00-01</span></p>
-					
-					<p><strong>Режим работы:</strong><br />
-					Будние дни: <br />
-					с 9:00 до 18:00<br />
-					Суббота, Воскресенье:<br />
-					выходные</p>
-				</div>
-				<div class="news">
-					<h3>Новости</h3>
-					<p>
-						<span>24.03.2012</span>
-					<a href="#">Поступили в продажу новые
-					телефоны sumsung</a>	
-					</p>
-					<p>
-						<span>24.03.2012</span>
-					<a href="#">Подарки всем купившим apple iphone 4s</a>	
-					</p>
-					<a href="#" class="news-arh">Архив новостей</a>
-				</div>
+
                 <!-- Информеры -->
                 <?php foreach($informers as $informer): ?>
                 <div class="info">

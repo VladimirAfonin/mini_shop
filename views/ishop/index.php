@@ -8,8 +8,7 @@
 		<?php require_once 'inc/leftbar.php' ?>
 	
 		<?php require_once 'inc/rightbar.php' ?>
-	<div class="clr"></div>	
-		<?php require_once 'inc/footer.php' ?>
+
 </div>
 </body>
 </html>

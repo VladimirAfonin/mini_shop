@@ -1,9 +1,6 @@
 <?php defined('ISHOP') or die('Access denied'); ?>
 <div class="catalog-index">
-    
-    <div class="kroshka">
-		<a href="#">Мобильные телефоны</a> / <a href="#">LG</a> / <span>Слайдеры</span>
-	</div> <!-- .kroshka -->
+
     <div class="vid-sort">
 		Вид: 
 			<a href="#"><img src="<?=TEMPLATE?>images/vid-tabl.gif" alt="табличный вид" /></a> 

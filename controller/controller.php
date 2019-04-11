@@ -2,6 +2,8 @@
 
 defined('ISHOP') or die('Access denied');
 
+session_start();
+
 // подключение модели
 require_once MODEL;
 
