@@ -1,16 +1,17 @@
 <?php defined('ISHOP') or die('Access denied'); ?>
-<div class="catalog-index">
+<div class="catalog-index"><br><br><br>
 
-    <div class="vid-sort">
+    <!--<div class="vid-sort">
 		Вид: 
-			<a href="#"><img src="<?=TEMPLATE?>images/vid-tabl.gif" alt="табличный вид" /></a> 
-			<a href="#"><img src="<?=TEMPLATE?>images/vid-line.gif" alt="табличный вид" /></a>  
+			<a href="#"><img src="<?/*=TEMPLATE*/?>images/vid-tabl.gif" alt="табличный вид" /></a>
+			<a href="#"><img src="<?/*=TEMPLATE*/?>images/vid-line.gif" alt="табличный вид" /></a>
 			&nbsp;&nbsp;           
 		Сортировать по:&nbsp;    
 			<a href="#" class="sort-top-act">цене</a>  &nbsp;|&nbsp;     
 			<a href="#" class="sort-top">названию</a>  &nbsp;|&nbsp;     
 			<a href="#" class="sort-bot">дате добавлеия</a>
-	</div> <!-- .vid-sort -->
+	</div> -->
+    <!-- .vid-sort -->
 
 <?php if($products): // если получены товары категории ?>
 <?php foreach($products as $product): ?>					

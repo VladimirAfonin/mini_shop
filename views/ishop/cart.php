@@ -31,47 +31,12 @@
       </tr>
 	</table>
 	
-	<div class="sposob-dostavki">
-		<h4>Способы доставки:</h4>
-			<p><input type="radio" name="1" value="1" /> Курьером, 200 руб</p> 
-			<p><input type="radio" name="1" value="2" /> Самовывоз, бесплатно</p> 
-			<p><input type="radio" name="1" value="3" /> В магазин, бесплатно</p> 
-	</div>		
-	
-	
-	<h3>Информация для доставки:</h3>
-	
-	<table class="zakaz-data" border="0" cellspacing="0" cellpadding="0">
-	  <tr>
-		<td class="zakaz-txt">ФИО</td>
-		<td class="zakaz-inpt"><input type="text" name="address" /></td>
-		<td class="zakaz-prim">Пример: Иванов Сергей Александрович</td>
-	  </tr>
-	  <tr>
-		<td class="zakaz-txt">Е-маил</td>
-		<td class="zakaz-inpt"><input type="text" name="address" /></td>
-		<td class="zakaz-prim">Пример: test@mail.ru</td>
-	  </tr>
-	  <tr>
-		<td class="zakaz-txt">Телефон</td>
-		<td class="zakaz-inpt"><input type="text" name="address" /></td>
-		<td class="zakaz-prim">Пример: 8 937 999 99 99</td>
-	  </tr>
-	  <tr>
-		<td class="zakaz-txt">Адрес доставки</td>
-		<td class="zakaz-inpt"><input type="text" name="address" /></td>
-		<td class="zakaz-prim">Пример: г. Москва, пр. Мира, ул. Петра Великого д.19, кв 51.</td>
-	  </tr>
-	  <tr>
-		<td class="zakaz-txt" style="vertical-align:top;">Примечание </td>
-		<td class="zakaz-txtarea"><textarea></textarea></td>
-		<td class="zakaz-prim" style="vertical-align:top;">Пример: Позвоните пожалуйста после 10 вечера, 
-до этого времени я на работе </td>
-	  </tr>
+
+
 	</table>
-		
-		<input type="image" src="<?=TEMPLATE?>images/zakazat.jpg" /> 
-		
+        <p class="result-msg"></p>
+		<input class="zakazat-success" type="image" src="<?=TEMPLATE?>images/zakazat.jpg" />
+
 		<br /><br /><br /><br />
 	
 	

@@ -13,6 +13,21 @@ require_once 'functions/functions.php';
 // получение массива каталога
 $cat = catalog($connect);
 
+// оформление заказа
+if($_POST['order']){
+    $res = save_order($connect);
+    if($res){
+        // если заказ сохранен
+        unset($_SESSION['cart'], $_SESSION['total_sum'], $_SESSION['total_qty']);
+        echo $_SESSION['order']['res'] = "<div class='success'>Заказ оформлен успешно и сохранен в БД!</div>";
+        exit;
+    }else{
+        // если заказ не сохранен
+        echo $_SESSION['order']['res'] = "<div class='error'>Ошибка при оформлении заказа!</div>";
+        exit;
+    }
+}
+
 // получение динамичной части шаблона #content
 $view = empty($_GET['view']) ? 'hits' : $_GET['view'];
 
@@ -57,7 +72,6 @@ switch($view){
             unset($_SESSION['cart'], $_SESSION['total_sum'], $_SESSION['total_qty']);
             redirect();
         }
-
         break;
 
 }

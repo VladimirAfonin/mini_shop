@@ -46,6 +46,7 @@ $(document).ready(function(){
 		});
 	});
 
+
 	$('.confirm').click(function(){
 		var result = confirm('Вы уверены?');
 		if(result) {
@@ -54,5 +55,29 @@ $(document).ready(function(){
 			return false;
 		}
 	});
+
+    /* === заказ товаров из корзины === */
+    $(".zakazat-success").click(function(e){
+        var res = confirm('Вы уверены, что хотите оформить заказ?');
+        if(res) {
+            e.preventDefault();
+            var order = 1;
+            $.ajax({
+                url: './',
+                type: 'POST',
+                data: {order: order},
+                success: function(res) {
+                    // если заказ успешен
+                    $(".result-msg").html(res);
+                },
+                error: function(res) {
+                    // если произошла ошибка
+                    $(".result-msg").html(res);
+                },
+            });
+        } else {
+            return false;
+        }
+    });
 
 });

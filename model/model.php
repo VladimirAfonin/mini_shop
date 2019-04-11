@@ -73,3 +73,35 @@ function delete_from_cart($goods_id){
         }
     }
 }
+
+/* ===оформление заказа === */
+function save_order($connect, $status = true){
+    // сохраняем 'orders'
+    $query = "INSERT INTO orders (`customer_id`, `date`, `dostavka_id`, `prim`) 
+                VALUES (1, NOW(), 1, 'some text here...')";
+
+   $res = mysqli_query($connect, $query) or die(mysqli_error($connect));
+   if(mysqli_affected_rows($connect) == -1) {
+       return false;
+   }
+
+    // сохраняем 'zakaz_order'
+   $order_id = mysqli_insert_id($connect);
+   $val = '';
+   foreach($_SESSION['cart'] as $goods_id => $value) {
+       $val .= "($order_id, $goods_id, {$value['qty']}),";
+   }
+    $val = substr($val, 0, -1); // убираем последнюю запятую
+
+
+   $q = "INSERT INTO zakaz_tovar (`orders_id`, `goods_id`, `quantity`)
+          VALUES $val";
+
+    $res = mysqli_query($connect, $q) or die(mysqli_error($connect));
+    if(mysqli_affected_rows($connect) == -1) {
+        mysqli_query($connect, "DELETE FROM orders WHERE order_id = $order_id");
+        return false;
+    }
+
+    return $status;
+}
