@@ -75,7 +75,7 @@ function delete_from_cart($goods_id){
 }
 
 /* ===оформление заказа === */
-function save_order($connect, $status = true){
+function save_order($connect){
     // сохраняем 'orders'
     $query = "INSERT INTO orders (`customer_id`, `date`, `dostavka_id`, `prim`) 
                 VALUES (1, NOW(), 1, 'some text here...')";
@@ -103,5 +103,28 @@ function save_order($connect, $status = true){
         return false;
     }
 
-    return $status;
+    return $order_id;
+}
+
+/* === отправка письма === */
+function mail_order($order_id){
+    //mail(to, subject, body, header);
+    // тема письма
+    $subject = "Заказ в интернет-магазине";
+    // заголовки
+    $headers = '';
+    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
+    $headers .= "From: MINI_SHOP";
+    // тело письма
+    $mail_body = "Благодарим Вас за заказ!\r\nНомер Вашего заказа - {$order_id}
+    \r\n\r\nЗаказанные товары:\r\n";
+    // атрибуты товара
+    foreach($_SESSION['cart'] as $goods_id => $value){
+        $mail_body .= "Наименование: {$value['name']}, Цена: {$value['price']}, Количество: {$value['qty']} шт.\r\n";
+    }
+    $mail_body .= "\r\nИтого: {$_SESSION['total_quantity']} на сумму: {$_SESSION['total_sum']}";
+
+    // отправка писем
+    $result = mail(ADMIN_EMAIL, $subject, $mail_body, $headers);
+    return $result;
 }

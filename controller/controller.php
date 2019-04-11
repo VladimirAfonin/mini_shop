@@ -20,6 +20,7 @@ if($_POST['order']){
         // если заказ сохранен
         unset($_SESSION['cart'], $_SESSION['total_sum'], $_SESSION['total_qty']);
         echo $_SESSION['order']['res'] = "<div class='success'>Заказ оформлен успешно и сохранен в БД!</div>";
+        mail_order($res);
         exit;
     }else{
         // если заказ не сохранен

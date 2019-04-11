@@ -20,6 +20,9 @@ define('TEMPLATE', VIEW . 'ishop/');
 // папка с картинками контента
 define('PRODUCTIMG', PATH . 'userfiles/');
 
+// email администратора
+define('ADMIN_EMAIL', 'afonin006@gmail.com');
+
 // сервер БД
 define('HOST', 'localhost');
 
