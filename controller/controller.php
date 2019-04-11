@@ -29,19 +29,24 @@ switch($view){
         addtocart($goods_id);
 
         $_SESSION['total_sum'] = total_sum($_SESSION['cart'], $connect);
-        $_SESSION['total_qty'] = 0;
-        foreach($_SESSION['cart'] as $key => $value) {
-            if(isset($value['price'])) {
-                $_SESSION['total_qty'] += $value['qty'];
-            } else {
-                unset($_SESSION['cart'][$key]);
-            }
-        }
+        total_quantity();
         redirect();
         break;
 
     case('cart'):
         // корзина
+        // - пересчет кол-ва
+        if(isset($_GET['gid'], $_GET['qty'])) {
+            $goods_id = (int)$_GET['gid'];
+            $qty = (int)$_GET['qty'];
+
+            $qty = $qty - $_SESSION['cart'][$goods_id]['qty'];
+            addtocart($goods_id, $qty);
+            total_quantity();
+            $_SESSION['total_sum'] = total_sum($_SESSION['cart'], $connect);
+            redirect();
+        }
+        break;
 
 }
 

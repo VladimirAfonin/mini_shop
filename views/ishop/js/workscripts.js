@@ -19,6 +19,31 @@ $(document).ready(function(){
         var link = jQuery(this).find('a').attr('href');
         window.location = link;
 	});
-    /* ===Аккордеон=== */
-    
+
+    /* ===Клавиша ENTER при пересчете=== */
+    $(".kolvo").keypress(function(e){
+        if(e.which == 13){
+            return false;
+        }
+    });
+
+    /* === пересчет товаров в корзине === */
+	$('.kolvo').each(function() {
+		var qty_start = $(this).val();
+
+		$(this).change(function() {
+            var qty_current = $(this).val();
+            var res = confirm("Пересчитать корзину?");
+            if(res) {
+				var id = $(this).attr("id");
+				if(!parseInt(id)) {
+                    qty_current = qty_start;
+				}
+				window.location = "?view=cart&qty=" + qty_current + "&gid=" + id;
+			} else {
+                $(this).val(qty_start);
+			}
+		});
+	});
+
 });

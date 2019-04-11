@@ -16,14 +16,14 @@
 			<a href="#"><img src="<?=PRODUCTIMG?><?=$item['img']?>" width="32" title="" /></a> 
 			<a href="#"><?=$item['name']?></a>
 		</td>
-		<td class="z_kol"><input class="kolvo" type="text" value="<?=$item['qty']?>" name="" /></td>
+		<td class="z_kol"><input id="<?= $key ?>" class="kolvo" type="text" value="<?=$item['qty']?>" name="" /></td>
 		<td class="z_price"><?=$item['price']?></td>
 		<td class="z_del"><a href="#"><img src="<?=TEMPLATE?>images/delete.jpg" title="удалить товар из заказа" /></a></td>
 	  </tr>
 <?php endforeach; ?>
 	  <tr>
 		<td class="z_bot">&nbsp;&nbsp;&nbsp;&nbsp;Итого:</td>
-		<td class="z_bot" colspan="3" align="right"><?=$_SESSION['total_quantity']?> шт &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?=$_SESSION['total_sum']?> руб.</td>
+		<td class="z_bot" colspan="3" align="right"><?=$_SESSION['total_qty']?> шт &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?=$_SESSION['total_sum']?> руб.</td>
 	  </tr>
 	  
 	</table>
